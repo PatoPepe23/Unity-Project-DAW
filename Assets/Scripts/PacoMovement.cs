@@ -48,9 +48,26 @@ public class PacoMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-            if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Enemigo");
+            GameObject enemy = collision.gameObject;
+
+            Vector2 enemyDirection = enemy.GetComponent<Rigidbody2D>().linearVelocity.x > 0 ? Vector2.left : Vector2.right;
+            
+            Vector2 enemyPosition = enemy.transform.position;
+            
+            Vector2 target = new Vector2(enemyPosition.x, enemyPosition.y) * enemyDirection;
+            Vector2 direction = (target - position).normalized;
+            Quaternion rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg);
+            GameObject bulletInstance = Instantiate(bullet, position, rotation);
+            
+            Debug.Log(target);
+            
+            bulletInstance.GetComponent<Rigidbody2D>().linearVelocity = direction * moveSpeed;
+            bulletInstance.transform.Translate(direction * Time.deltaTime);
+            
+            
+            
         }
     }
     
