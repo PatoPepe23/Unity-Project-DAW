@@ -9,11 +9,12 @@ TagManager:
   - Bullet
   - Paco
   - Ceiling
+  - Weapon
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Bullets
   - Water
   - UI
   - 
@@ -45,6 +46,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Action
+    uniqueID: 405554495
     locked: 0
   m_RenderingLayers:
   - Default

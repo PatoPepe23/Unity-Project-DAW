@@ -22,13 +22,18 @@ public class PacoMovement : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        if (Input.GetKeyDown("space"))
+        if (Input.GetMouseButtonDown(0))
         {
+
+            GameObject weapon = transform.Find("Weapon").gameObject;
+            
             Vector2 target = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-            Vector2 myPos = new Vector2(transform.position.x + 1f, transform.position.y + 0.3f);
-            Vector2 direction = (target - myPos).normalized;
+            Vector2 weaponPos = new Vector2(weapon.transform.position.x, weapon.transform.position.y + 0.3f);
+            Vector2 direction = (target - weaponPos).normalized;
             Quaternion rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg);
-            GameObject bulletInstance = Instantiate(bullet, myPos, rotation);
+            GameObject bulletInstance = Instantiate(bullet, weaponPos, rotation);
+            
+            Debug.Log(weapon.transform.rotation);
             
             bulletInstance.GetComponent<Rigidbody2D>().linearVelocity = direction * moveSpeed;
             
@@ -39,14 +44,26 @@ public class PacoMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Rotation movement
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition.z = Camera.main.nearClipPlane;
+        
+        Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        
+        Vector3 targetDirection = worldMousePosition - transform.position;
+        targetDirection.z = 0f;
+        targetDirection.Normalize();
+        
+        float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
+        
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        
+        transform.rotation = targetRotation;
+
+        // Horizontal and vertical movement
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
-
-        if (Input.GetKeyDown("space"))
-        {
-            
-        }
-
+        
         Vector2 moveDirection = new Vector2(moveHorizontal, moveVertical) * moveSpeed;
         rb.linearVelocity = moveDirection; 
     }
@@ -65,6 +82,7 @@ public class PacoMovement : MonoBehaviour
         Debug.Log(collision.gameObject.name);
         if (collision.gameObject.CompareTag("Bullet"))
         {
+            Destroy(collision.gameObject);
             lives -= 1;
             GameObject.Find("LivesDisplay").GetComponent<TextMeshProUGUI>().text = lives.ToString();
         }
