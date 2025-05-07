@@ -28,16 +28,17 @@ public class PacoMovement : MonoBehaviour
             GameObject weapon = transform.Find("Weapon").gameObject;
             
             Vector2 target = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-            Vector2 weaponPos = new Vector2(weapon.transform.position.x, weapon.transform.position.y + 0.3f);
+            Vector2 weaponPos = new Vector2(weapon.transform.position.x, weapon.transform.position.y);
             Vector2 direction = (target - weaponPos).normalized;
             Quaternion rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg);
             GameObject bulletInstance = Instantiate(bullet, weaponPos, rotation);
             
-            Debug.Log(weapon.transform.rotation);
+            Debug.Log(weaponPos);
+            Debug.Log(bulletInstance.transform.position);
             
             bulletInstance.GetComponent<Rigidbody2D>().linearVelocity = direction * moveSpeed;
             
-            // bulletInstance.transform.Translate(direction * Time.deltaTime);
+            bulletInstance.transform.Translate(direction * Time.deltaTime);
             
         }
     }
