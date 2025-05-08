@@ -59,6 +59,7 @@ public class FireTowerLogic : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.gameObject.name);
         enemies.Add(collision);
     }
     
