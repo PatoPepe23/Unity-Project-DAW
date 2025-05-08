@@ -10,6 +10,7 @@ TagManager:
   - Paco
   - Ceiling
   - Weapon
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -17,9 +18,9 @@ TagManager:
   - Bullets
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Enemy
+  - Border
+  - Turret
   - 
   - 
   - 
