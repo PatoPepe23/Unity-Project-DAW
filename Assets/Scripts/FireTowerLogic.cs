@@ -12,8 +12,6 @@ public class FireTowerLogic : MonoBehaviour
     public float cooldownTime =1f;
     public GameObject bullet;
     public Vector2 position;
-    bool enemyInside = false;
-    // private Collider2D enemy;
     private List<Collider2D> enemies = new List<Collider2D>();
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -61,22 +59,19 @@ public class FireTowerLogic : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D collision)
     {
-        // enemyInside = true;
-        // enemy = collision;
+        Debug.Log(collision.gameObject.name);
         enemies.Add(collision);
     }
     
     void OnTriggerExit2D(Collider2D collision)
     {
         enemies.RemoveAt(0);
-        // enemy = enemies[0] ? enemies[0] : null;
     }
 
     IEnumerator Shoot()
     {
         while (true)
         {
-            Debug.Log(enemies.Count);
             if (enemies.Count > 0)
             {
                 GameObject enemy = enemies.First().gameObject;
