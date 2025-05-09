@@ -20,11 +20,9 @@ public class FireTowerLogic : MonoBehaviour
         position = new Vector2(transform.position.x, transform.position.y + 1f);
         StartCoroutine(Shoot());
     }
-
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetMouseButtonDown(0))
         {
             
@@ -59,8 +57,10 @@ public class FireTowerLogic : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.name);
-        enemies.Add(collision);
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            enemies.Add(collision);
+        }
     }
     
     void OnTriggerExit2D(Collider2D collision)

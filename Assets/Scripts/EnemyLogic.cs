@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class EnemyLogic : MonoBehaviour
 {
+    [SerializeField] public float moveSpeed;
+    
     Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
