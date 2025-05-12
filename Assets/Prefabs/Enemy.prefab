@@ -103,15 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67624decd1f1b640bfc89c68796aa33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  enemies: []
+  points: []
   moveSpeed: 2
 --- !u!58 &7343408613263804113
 CircleCollider2D:
