@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 9093df5ad8920b54db37bdb45db7c6fb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - FireTower: {fileID: 2147877992678129356, guid: 0b85d3cd4e508fc4ab69230721f11bde, type: 3}
+  - ElectroTower: {fileID: 6222133775412314571, guid: 2608f37f581050d4581c9716f39bc7fe, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
