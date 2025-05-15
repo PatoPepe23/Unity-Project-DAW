@@ -95,10 +95,18 @@ public class FireTowerLogic : MonoBehaviour
                 
                         Vector2 target = new Vector2(enemyPosition.x, enemyPosition.y);
                         Vector2 direction = (target - position).normalized;
-                        Quaternion rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg);
-                        GameObject bulletInstance = Instantiate(bullet, position, rotation);
+                        GameObject bulletInstance = Instantiate(bullet, position, quaternion.identity);
+                        
+                        float bulletVelocity = bulletInstance.GetComponent<BulletBehavior>().velocity;
+                        float distance = Vector2.Distance(position, target);
+                        float timeToImpact = distance / bulletVelocity;
+                        
+                        Vector2 futurePosition = (Vector2)target + (Vector2)direction / timeToImpact;
+                        Debug.Log(futurePosition);
+                        
+                        bulletInstance.transform.right = futurePosition;
                 
-                        bulletInstance.GetComponent<Rigidbody2D>().linearVelocity = direction * moveSpeed;
+                        bulletInstance.GetComponent<Rigidbody2D>().linearVelocity = direction * bulletVelocity;
                         bulletInstance.transform.Translate(direction * Time.deltaTime);   
                     }
                 }

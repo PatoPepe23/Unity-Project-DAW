@@ -632,6 +632,12 @@ MonoBehaviour:
   - {fileID: 448850537}
   enemiesList:
   - {fileID: 6690139450456944625, guid: 873e618433d5d4d4ca5af316333fd5e5, type: 3}
+  DefauldEnemy: {fileID: 6690139450456944625, guid: 873e618433d5d4d4ca5af316333fd5e5, type: 3}
+  FastEnemy: {fileID: 2479068172288466546, guid: 3427b401e23afe94aacbbfe60196179c, type: 3}
+  TankEnemy: {fileID: 2398307600185822051, guid: 583f417311420d7439611ac65007daeb, type: 3}
+  BossEnemy: {fileID: 929171404334203587, guid: 95f40cb39b99e1c4d8763785cd5c412e, type: 3}
+  spawnInterval: 1
+  round: 1
 --- !u!1 &448850536
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,6 +647,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 448850537}
+  - component: {fileID: 448850539}
+  - component: {fileID: 448850538}
   m_Layer: 0
   m_Name: GameObject (6)
   m_TagString: Untagged
@@ -657,12 +665,61 @@ Transform:
   m_GameObject: {fileID: 448850536}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.65, y: 2.79, z: 0}
+  m_LocalPosition: {x: 11.31, y: 2.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 738481647}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &448850538
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448850536}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
+--- !u!114 &448850539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448850536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8228381df8bafd24b8243f2cdbe99d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 100
 --- !u!1 &456328903
 GameObject:
   m_ObjectHideFlags: 0

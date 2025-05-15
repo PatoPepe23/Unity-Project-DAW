@@ -17,11 +17,12 @@ public class PathController : MonoBehaviour
     public int round = 1;
     private int enemyIndex = 0;
     private bool spawningRound = false;
+    private List<GameObject> aliveEnemies = new List<GameObject>();
 
     public Dictionary<string, List<GameObject>> rounds = new Dictionary<string, List<GameObject>>()
     {
         {"round1", new List<GameObject>() { null, null, null, null, null, null, null, null }},
-        {"round2", new List<GameObject>() {  }},
+        {"round2", new List<GameObject>() { null, null, null, null, null, null, null, null }},
         {"round3", new List<GameObject>() {  }},
         {"round4", new List<GameObject>() {  }},
         {"round5", new List<GameObject>() {  }},
@@ -52,6 +53,18 @@ public class PathController : MonoBehaviour
             rounds["round1"][5] = TankEnemy;
             rounds["round1"][6] = TankEnemy;
             rounds["round1"][7] = TankEnemy;
+        }
+        
+        if (rounds.ContainsKey("round2"))
+        {
+            rounds["round2"][0] = DefauldEnemy;
+            rounds["round2"][1] = DefauldEnemy;
+            rounds["round2"][2] = DefauldEnemy;
+            rounds["round2"][3] = TankEnemy;
+            rounds["round2"][4] = TankEnemy;
+            rounds["round2"][5] = TankEnemy;
+            rounds["round2"][6] = TankEnemy;
+            rounds["round2"][7] = FastEnemy;
         }
     }
 
@@ -99,6 +112,7 @@ public class PathController : MonoBehaviour
                     if (enemyPath != null)
                     {
                         enemyPath.points = points;
+                        aliveEnemies.Add(newEnemy);
                     }
                     else
                     {
@@ -113,8 +127,8 @@ public class PathController : MonoBehaviour
         else
         {
             spawningRound = false;
-            round++; // Pasar a la siguiente ronda después de spawnear todos los enemigos
-            enemyIndex = 0; // Resetear el índice para la siguiente ronda
+            round++;
+            enemyIndex = 0;
         }
     }
 }
