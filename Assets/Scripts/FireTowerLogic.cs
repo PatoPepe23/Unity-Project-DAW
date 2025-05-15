@@ -25,7 +25,7 @@ public class FireTowerLogic : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0))
+        /*if (Input.GetMouseButtonDown(0))
         {
             
             Vector2 target = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
@@ -36,7 +36,7 @@ public class FireTowerLogic : MonoBehaviour
             bulletInstance.GetComponent<Rigidbody2D>().linearVelocity = direction * moveSpeed;
             bulletInstance.transform.Translate(direction * Time.deltaTime);
             
-        }
+        }*/
     }
 
     void FixedUpdate()
@@ -59,8 +59,11 @@ public class FireTowerLogic : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.name);
-        enemies.Add(collision);
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log(collision.gameObject.name);
+            enemies.Add(collision);
+        }
     }
     
     void OnTriggerExit2D(Collider2D collision)
