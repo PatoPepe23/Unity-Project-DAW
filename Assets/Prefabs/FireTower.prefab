@@ -134,6 +134,7 @@ MonoBehaviour:
   cooldownTime: 1
   bullet: {fileID: 6898633301021416960, guid: b48db46a65037d248ad43d36f0a9b944, type: 3}
   position: {x: 0, y: 0}
+  damage: 10
 --- !u!58 &6714622036826718221
 CircleCollider2D:
   m_ObjectHideFlags: 0
