@@ -37,7 +37,7 @@ public class FireTowerLogic : MonoBehaviour
             bulletInstance.GetComponent<Rigidbody2D>().linearVelocity = direction * moveSpeed;
             bulletInstance.transform.Translate(direction * Time.deltaTime);
             
-        }
+        }*/
     }
 
     void FixedUpdate()

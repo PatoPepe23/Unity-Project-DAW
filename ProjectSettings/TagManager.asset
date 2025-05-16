@@ -11,6 +11,8 @@ TagManager:
   - Ceiling
   - Weapon
   - Enemy
+  - Turret
+  - Turrethitbox
   layers:
   - Default
   - TransparentFX
@@ -21,9 +23,9 @@ TagManager:
   - Enemy
   - Border
   - Turret
-  - 
-  - 
-  - 
+  - Floor
+  - Turrethitbox
+  - Path
   - 
   - 
   - 
