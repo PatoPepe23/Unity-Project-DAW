@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: []
-  moveSpeed: 4
+  moveSpeed: 3
 --- !u!114 &-402229914357628973
 MonoBehaviour:
   m_ObjectHideFlags: 0

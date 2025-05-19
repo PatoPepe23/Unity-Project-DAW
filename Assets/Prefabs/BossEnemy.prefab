@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: []
-  moveSpeed: 1
+  moveSpeed: 0.5
 --- !u!50 &6700242324551926615
 Rigidbody2D:
   serializedVersion: 5

@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: []
-  moveSpeed: 2
+  moveSpeed: 1
 --- !u!58 &5316052308733257262
 CircleCollider2D:
   m_ObjectHideFlags: 0

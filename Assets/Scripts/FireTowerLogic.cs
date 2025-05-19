@@ -101,10 +101,10 @@ public class FireTowerLogic : MonoBehaviour
                         float distance = Vector2.Distance(position, target);
                         float timeToImpact = distance / bulletVelocity;
                         
-                        Vector2 futurePosition = (Vector2)target + (Vector2)direction / timeToImpact;
+                        Vector2 futurePosition = (Vector2)target + (Vector2)direction * bulletVelocity;
                         Debug.Log(futurePosition);
                         
-                        bulletInstance.transform.right = futurePosition;
+                        bulletInstance.transform.right = target;
                 
                         bulletInstance.GetComponent<Rigidbody2D>().linearVelocity = direction * bulletVelocity;
                         bulletInstance.transform.Translate(direction * Time.deltaTime);   
