@@ -10,6 +10,9 @@ using UnityEngine;
 
 public class FireTowerLogic : MonoBehaviour
 {
+    public static FireTowerLogic SelectedTurret { get; private set; }
+    public event System.Action OnTurretClicked;
+    public int level = 1;
     public float moveSpeed = 5f;
     public float cooldownTime =1f;
     public GameObject bullet;
@@ -119,6 +122,33 @@ public class FireTowerLogic : MonoBehaviour
             }
             yield return new WaitForSeconds(cooldownTime);
         }
+    }
+
+    public void OnMouseDown()
+    {
+        if (SelectedTurret != null && SelectedTurret != this)
+        {
+            SelectedTurret.DeselectTurret();
+        }
+        SelectedTurret = this;
+        SelectTurret();
+        OnTurretClicked?.Invoke();
+    }
+    
+    public void SelectTurret()
+    {
+        Debug.Log("Torreta seleccionada: " + gameObject.name);
+    }
+    
+    public void DeselectTurret()
+    {
+        Debug.Log("Torreta deseleccionada: " + gameObject.name);
+        SelectedTurret = null;
+    }
+
+    void OpenTurretMenu()
+    {
+        
     }
     
 }
