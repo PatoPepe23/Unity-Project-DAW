@@ -17,6 +17,9 @@ public class TurretPlacer : MonoBehaviour
 
     private Collider2D ghostCollider;
 
+    private float currentZ = 0f;
+    private float zStep = 0.1f;
+
     void Start()
     {
         TowerSelected = false;
@@ -49,7 +52,8 @@ public class TurretPlacer : MonoBehaviour
         if (ghostInstance != null)
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            ghostInstance.transform.position = mousePosition;
+            ghostInstance.transform.position = new Vector3(mousePosition.x, mousePosition.y, 890f);
+
 
             if (ghostCollider == null)
                 ghostCollider = ghostInstance.GetComponent<Collider2D>();
@@ -72,10 +76,12 @@ public class TurretPlacer : MonoBehaviour
 
             if (!hayColision && Input.GetMouseButtonDown(0))
             {
-                Instantiate(turretselected, mousePosition, Quaternion.identity);
+                Vector3 finalPosition = new Vector3(mousePosition.x, mousePosition.y, currentZ);
+                Instantiate(turretselected, finalPosition, Quaternion.identity);
                 Destroy(ghostInstance);
                 ghostCollider = null;
                 TowerSelected = false;
+                currentZ -= zStep;
             }
         }
     }
