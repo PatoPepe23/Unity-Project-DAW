@@ -7,6 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
+// using static UpdateTowerMenu;
 
 public class FireTowerLogic : MonoBehaviour
 {
@@ -28,19 +29,19 @@ public class FireTowerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            
-            Vector2 target = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-            Vector2 direction = (target - position).normalized;
-            // Quaternion rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg);
-            GameObject bulletInstance = Instantiate(bullet, position, quaternion.identity);
-            bulletInstance.transform.right = direction;
-            
-            bulletInstance.GetComponent<Rigidbody2D>().linearVelocity = direction * moveSpeed;
-            bulletInstance.transform.Translate(direction * Time.deltaTime);
-            
-        }
+        // if (Input.GetMouseButtonDown(0))
+        // {
+        //     
+        //     Vector2 target = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+        //     Vector2 direction = (target - position).normalized;
+        //     // Quaternion rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg);
+        //     GameObject bulletInstance = Instantiate(bullet, position, quaternion.identity);
+        //     bulletInstance.transform.right = direction;
+        //     
+        //     bulletInstance.GetComponent<Rigidbody2D>().linearVelocity = direction * moveSpeed;
+        //     bulletInstance.transform.Translate(direction * Time.deltaTime);
+        //     
+        // }
     }
 
     void FixedUpdate()
@@ -133,6 +134,18 @@ public class FireTowerLogic : MonoBehaviour
         SelectedTurret = this;
         SelectTurret();
         OnTurretClicked?.Invoke();
+
+        // THIS IS THE CRUCIAL CHANGE:
+        // Always refer to the Singleton instance with its full class name.
+        if (UpdateTowerMenu.Instance != null) // Add this null check for robustness
+        {
+            // ALWAYS use this in FireTowerLogic.cs
+            UpdateTowerMenu.Instance.ShowMenu(); // <-- This will now correctly target your singleton
+        }
+        else
+        {
+            Debug.LogError("Error: UpdateTowerMenu.Instance is NULL. Make sure the UpdateTowerMenu script is on an active GameObject in your scene and correctly initialized in its Awake method.", this);
+        }
     }
     
     public void SelectTurret()
