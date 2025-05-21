@@ -1,16 +1,18 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Path : MonoBehaviour
 {
-    [SerializeField] Transform[] points;
+    public Transform[] points;
+    public int moveSpeed;
     
-    [SerializeField] private float moveSpeed;
-    
-    private int pointIndex; 
+    private int pointIndex;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         transform.position = points[pointIndex].transform.position;
+        // GameObject moveSpeed = transform.GetComponent<EnemyLogic>();
     }
 
     // Update is called once per frame
