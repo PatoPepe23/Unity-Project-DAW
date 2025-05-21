@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1239445902203767163}
   - component: {fileID: 4959356862529911170}
   - component: {fileID: 7164964683806076140}
-  - component: {fileID: 5409429624656963292}
   - component: {fileID: 6113779544836282849}
   - component: {fileID: 5724262437311964335}
+  - component: {fileID: -379758372282960459}
   m_Layer: 8
   m_Name: FireTower
   m_TagString: Turret
@@ -120,22 +120,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5409429624656963292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2147877992678129356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a690e70dfcf97af4ab0401534c9dd9df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  cooldownTime: 1
-  bullet: {fileID: 6898633301021416960, guid: b48db46a65037d248ad43d36f0a9b944, type: 3}
-  position: {x: 0, y: 0}
 --- !u!58 &6113779544836282849
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -194,6 +178,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-379758372282960459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147877992678129356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a690e70dfcf97af4ab0401534c9dd9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1
+  moveSpeed: 5
+  cooldownTime: 1
+  bullet: {fileID: 6158128695115125008, guid: dfc43ca90e3aa0447a3c746c7ec31c20, type: 3}
+  position: {x: 0, y: 0}
 --- !u!1 &6003534244279307042
 GameObject:
   m_ObjectHideFlags: 0
