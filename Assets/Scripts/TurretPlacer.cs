@@ -27,13 +27,24 @@ public class TurretPlacer : MonoBehaviour
 
     public void fireTowerSelected()
     {
-        TowerSelected = true;
-        turretselected = FireTower;
+        if (CurrencySystem.Instance.currencyAmount >= 10)
+        {
+            
 
-        if (ghostInstance != null)
-            Destroy(ghostInstance);
+            TowerSelected = true;
+            turretselected = FireTower;
 
-        ghostInstance = Instantiate(FireTowerGhost);
+            if (ghostInstance != null)
+                Destroy(ghostInstance);
+
+            ghostInstance = Instantiate(FireTowerGhost);
+        }
+        else
+        {
+            return;
+            
+        }
+        
     }
 
     public void electroTowerSelected()
@@ -76,6 +87,7 @@ public class TurretPlacer : MonoBehaviour
 
             if (!hayColision && Input.GetMouseButtonDown(0))
             {
+                CurrencySystem.Instance.SpendCurrency(10);
                 Vector3 finalPosition = new Vector3(mousePosition.x, mousePosition.y, currentZ);
                 Instantiate(turretselected, finalPosition, Quaternion.identity);
                 Destroy(ghostInstance);
