@@ -19,7 +19,6 @@ public class FireTowerLogic : MonoBehaviour
     public GameObject bullet;
     public Vector2 position;
     private List<Collider2D> enemies = new List<Collider2D>();
-    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -83,43 +82,45 @@ public class FireTowerLogic : MonoBehaviour
         while (true)
         {
             enemies.RemoveAll(enemyCollider => enemyCollider == null);
+            
             if (enemies.Count > 0)
             {
                 try
                 {
                     GameObject enemy = enemies.First().gameObject;
-                    
+
                     Debug.Log(enemy);
-                
-                    if ( enemy != null && enemy.gameObject.CompareTag("Enemy"))
+
+                    if (enemy != null && enemy.gameObject.CompareTag("Enemy"))
                     {
+
                         Vector2 enemyDirection = enemy.GetComponent<Rigidbody2D>().linearVelocity.x > 0 ? Vector2.left : Vector2.right;
-                
+
                         Vector2 enemyPosition = enemy.transform.position;
-                
+
                         Vector2 target = new Vector2(enemyPosition.x, enemyPosition.y);
                         Vector2 direction = (target - position).normalized;
                         GameObject bulletInstance = Instantiate(bullet, position, quaternion.identity);
-                        
+
                         float bulletVelocity = bulletInstance.GetComponent<BulletBehavior>().velocity;
                         float distance = Vector2.Distance(position, target);
                         float timeToImpact = distance / bulletVelocity;
-                        
+
                         Vector2 futurePosition = (Vector2)target + (Vector2)direction * bulletVelocity;
                         Debug.Log(futurePosition);
-                        
+
                         bulletInstance.transform.right = target;
-                
+
                         bulletInstance.GetComponent<Rigidbody2D>().linearVelocity = direction * bulletVelocity;
-                        bulletInstance.transform.Translate(direction * Time.deltaTime);   
+                        bulletInstance.transform.Translate(direction * Time.deltaTime);
                     }
                 }
                 catch (Exception e)
                 {
                     enemies.RemoveAt(0);
                 }
-                
-                
+
+
             }
             yield return new WaitForSeconds(cooldownTime);
         }

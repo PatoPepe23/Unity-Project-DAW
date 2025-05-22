@@ -18,6 +18,7 @@ public class BulletBehavior : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        CurrencySystem.Instance.AddCurrency(5);
         Destroy(this.gameObject);
         Debug.Log(collision.gameObject.name);
     }
