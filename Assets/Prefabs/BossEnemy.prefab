@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: e50cb77caa46f314e96387ed7b9e4810, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: e50cb77caa46f314e96387ed7b9e4810, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e50cb77caa46f314e96387ed7b9e4810, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.35
