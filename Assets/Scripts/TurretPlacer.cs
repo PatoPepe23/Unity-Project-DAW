@@ -55,7 +55,7 @@ public class TurretPlacer : MonoBehaviour
     public void ThunderTowerSelected()
     {
         Debug.Log("ThunderTowerSelected");
-        if (CurrencySystem.Instance.currencyAmount >= 50)
+        if (CurrencySystem.Instance.currencyAmount >= 100)
         {
             TowerSelected = true;
             turretselected = ElectroTower;
@@ -73,7 +73,7 @@ public class TurretPlacer : MonoBehaviour
 
     public void WindTowerSelected()
     {
-        if (CurrencySystem.Instance.currencyAmount >= 20)
+        if (CurrencySystem.Instance.currencyAmount >= 50)
         {
             Debug.Log("WindTowerSelected");
             TowerSelected = true;
@@ -124,10 +124,10 @@ public class TurretPlacer : MonoBehaviour
                     CurrencySystem.Instance.SpendCurrency(10);
                 } else if (turretselected == ElectroTower)
                 {
-                    CurrencySystem.Instance.SpendCurrency(50);
+                    CurrencySystem.Instance.SpendCurrency(100);
                 } else if (turretselected == WindTower)
                 {
-                    CurrencySystem.Instance.SpendCurrency(20);
+                    CurrencySystem.Instance.SpendCurrency(50);
                 }
                 
                 Vector3 finalPosition = new Vector3(mousePosition.x, mousePosition.y, currentZ);

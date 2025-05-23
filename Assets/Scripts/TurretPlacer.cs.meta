@@ -6,8 +6,10 @@ MonoImporter:
   defaultReferences:
   - FireTower: {fileID: 2147877992678129356, guid: 0b85d3cd4e508fc4ab69230721f11bde, type: 3}
   - ElectroTower: {fileID: 6222133775412314571, guid: 2608f37f581050d4581c9716f39bc7fe, type: 3}
+  - WindTower: {fileID: 3820594328090205202, guid: 743eb5f3bb07eeb45b0f62bca2810228, type: 3}
   - FireTowerGhost: {fileID: 2147877992678129356, guid: 4f4c928307fb8c8458b57d70bf7bfc2e, type: 3}
-  - electroTowerGhost: {fileID: 6222133775412314571, guid: 60b88c937c1765e4a85213311a0eb966, type: 3}
+  - ThunderTowerGhost: {fileID: 6222133775412314571, guid: 60b88c937c1765e4a85213311a0eb966, type: 3}
+  - WindTowerGhost: {fileID: 6222133775412314571, guid: c8315d30ee2e588428909c8deda7c967, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
