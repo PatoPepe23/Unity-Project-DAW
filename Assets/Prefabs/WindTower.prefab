@@ -262,7 +262,7 @@ MonoBehaviour:
   level: 1
   moveSpeed: 5
   cooldownTime: 1
-  bullet: {fileID: 6158128695115125008, guid: dfc43ca90e3aa0447a3c746c7ec31c20, type: 3}
+  bullet: {fileID: 4455552081256263690, guid: cace8d179af8f7a469759b8ada4c720b, type: 3}
   position: {x: 0, y: 0}
   shootSound: {fileID: 0}
 --- !u!61 &743907513121795569
