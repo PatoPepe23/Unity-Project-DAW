@@ -7,12 +7,15 @@ using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
 // using static UpdateTowerMenu;
 
 public class FireTowerLogic : MonoBehaviour
 {
-    public static FireTowerLogic SelectedTurret { get; private set; }
+    public FireTowerLogic SelectedTurret { get; private set; }
     public event System.Action OnTurretClicked;
+    public string turretName ;
+    public int turretLevel;
     public int level = 1;
     public float moveSpeed = 5f;
     public float cooldownTime =1f;
@@ -28,19 +31,7 @@ public class FireTowerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if (Input.GetMouseButtonDown(0))
-        // {
-        //     
-        //     Vector2 target = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-        //     Vector2 direction = (target - position).normalized;
-        //     // Quaternion rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg);
-        //     GameObject bulletInstance = Instantiate(bullet, position, quaternion.identity);
-        //     bulletInstance.transform.right = direction;
-        //     
-        //     bulletInstance.GetComponent<Rigidbody2D>().linearVelocity = direction * moveSpeed;
-        //     bulletInstance.transform.Translate(direction * Time.deltaTime);
-        //     
-        // }
+
     }
 
     void FixedUpdate()
@@ -71,7 +62,7 @@ public class FireTowerLogic : MonoBehaviour
     
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (enemies.Count() > 0)
+        if (enemies.Count() > 0 && collision.gameObject.CompareTag("Enemy"))
         {
             enemies.RemoveAt(0);
         }
@@ -141,7 +132,7 @@ public class FireTowerLogic : MonoBehaviour
         if (UpdateTowerMenu.Instance != null) // Add this null check for robustness
         {
             // ALWAYS use this in FireTowerLogic.cs
-            UpdateTowerMenu.Instance.ShowMenu(); // <-- This will now correctly target your singleton
+            UpdateTowerMenu.Instance.ShowMenu(turretName, turretLevel); // <-- This will now correctly target your singleton
         }
         else
         {

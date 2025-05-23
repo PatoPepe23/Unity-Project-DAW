@@ -24,6 +24,7 @@ public class EnemyLogic : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.CompareTag("Bullet"))
         {
             BulletBehavior bullet = collision.gameObject.GetComponent<BulletBehavior>();

@@ -6,7 +6,8 @@ public class UpdateTowerMenu : MonoBehaviour
 {
     public GameObject UpgradeTurretCanva;
     public static UpdateTowerMenu Instance { get; private set; } // This declares the static property
-    public Text TurretNameTag; // Changed to TextMeshProUGUI if you are using TMPro for UI text
+    public Text TurretName;
+    public Text TurretLevel;// Changed to TextMeshProUGUI if you are using TMPro for UI text
 
     // Awake is called when the script instance is being loaded.
     // This is the ideal place to set up the Singleton pattern.
@@ -52,10 +53,12 @@ public class UpdateTowerMenu : MonoBehaviour
         // No specific update logic needed here for menu show/hide
     }
 
-    public void ShowMenu()
+    public void ShowMenu(string turretName, int turretLevel)
     {
         if (UpgradeTurretCanva != null)
         {
+            TurretName.text = turretName;
+            TurretLevel.text = turretLevel.ToString();
             UpgradeTurretCanva.SetActive(true);
             Debug.Log("Upgrade menu displayed.", this);
         }

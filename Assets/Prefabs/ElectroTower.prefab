@@ -90,6 +90,8 @@ GameObject:
   - component: {fileID: 739671588663376126}
   - component: {fileID: 8425655361148215719}
   - component: {fileID: 4388571950776969347}
+  - component: {fileID: 289336848125202815}
+  - component: {fileID: 8656473035060833194}
   m_Layer: 8
   m_Name: ElectroTower
   m_TagString: Turret
@@ -241,3 +243,58 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &289336848125202815
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6222133775412314571}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.5714286}
+  m_Radius: 5
+--- !u!114 &8656473035060833194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6222133775412314571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f18397dbe432b48a85e7154d6c5791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretName: Thunder Turret
+  turretLevel: 1
+  level: 1
+  moveSpeed: 5
+  cooldownTime: 1
+  bullet: {fileID: 3325982460692387047, guid: 00cd06036acb4664d9d7443f41436684, type: 3}
+  position: {x: 0, y: 0}
