@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: []
-  moveSpeed: 3
+  moveSpeed: 4
 --- !u!114 &-402229914357628973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   health: 70
-  money: 15
+  money: 10
 --- !u!50 &-3535636680026853402
 Rigidbody2D:
   serializedVersion: 5

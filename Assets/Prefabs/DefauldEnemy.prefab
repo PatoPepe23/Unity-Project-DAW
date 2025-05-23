@@ -183,8 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   health: 100
-  money: 10
-  animator: {fileID: 0}
+  money: 5
 --- !u!95 &3419073998731281340
 Animator:
   serializedVersion: 7

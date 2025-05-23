@@ -141,7 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSound: {fileID: 0}
   velocity: 0
-  damage: 15
+  damage: 25
 --- !u!95 &-7453920889865444548
 Animator:
   serializedVersion: 7

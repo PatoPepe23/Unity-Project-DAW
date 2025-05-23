@@ -172,5 +172,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 15
-  health: 200
-  money: 25
+  health: 350
+  money: 15
