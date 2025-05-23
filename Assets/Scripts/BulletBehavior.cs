@@ -7,6 +7,8 @@ public class BulletBehavior : MonoBehaviour
 
     public float velocity;
     public int damage;
+    
+    private Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,6 +38,9 @@ public class BulletBehavior : MonoBehaviour
             }
 
             Debug.Log("Bullet collided with: " + collision.gameObject.name);
+        } else if (collision.gameObject.CompareTag("Wall"))
+        {
+            Destroy(this.gameObject);
         }
     }
 }

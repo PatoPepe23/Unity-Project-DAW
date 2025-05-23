@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class PathController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PathController : MonoBehaviour
     public GameObject FastEnemy;
     public GameObject TankEnemy;
     public GameObject BossEnemy;
+    public Text RoundNumber;
 
     public float spawnInterval = 1f; // Tiempo en segundos entre cada spawn
     private float nextSpawnTime = 0f;
@@ -287,18 +289,13 @@ public class PathController : MonoBehaviour
 
     void Update()
     {
-        if (!spawningRound && Input.GetMouseButtonDown(0))
-        {
-            StartSpawningRound();
-        }
-
         if (spawningRound)
         {
             SpawnEnemiesOverTime();
         }
     }
 
-    void StartSpawningRound()
+    public void StartSpawningRound()
     {
         List<GameObject> currentRoundEnemies = GetCurrentRound();
         if (currentRoundEnemies != null && currentRoundEnemies.Count > 0)
@@ -306,6 +303,7 @@ public class PathController : MonoBehaviour
             spawningRound = true;
             nextSpawnTime = Time.time + spawnInterval;
             enemyIndex = 0;
+            RoundNumber.text = round.ToString();
         }
         else
         {
