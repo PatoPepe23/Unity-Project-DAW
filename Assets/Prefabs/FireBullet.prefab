@@ -225,5 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f763a8adc9dce844998b5a1e1b4b453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletSound: {fileID: 0}
   velocity: 25
-  damage: 10
+  damage: 20

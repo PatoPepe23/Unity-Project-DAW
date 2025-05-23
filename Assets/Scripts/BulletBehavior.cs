@@ -26,7 +26,8 @@ public class BulletBehavior : MonoBehaviour
             // Your existing logic for adding currency
             // Make sure CurrencySystem.Instance exists and AddCurrency is defined.
             CurrencySystem.Instance.AddCurrency(5);
-
+            
+            Debug.Log(this.gameObject.name);
             // Check if THIS bullet's name IS NOT "ThunderBullet(Clone)"
             // Remember that Unity adds "(Clone)" to instantiated prefabs.
             if (this.gameObject.name != "ThunderBullet(Clone)")
