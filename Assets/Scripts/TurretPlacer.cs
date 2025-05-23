@@ -5,11 +5,13 @@ public class TurretPlacer : MonoBehaviour
 {
     public GameObject FireTower;
     public GameObject ElectroTower;
+    public GameObject WindTower;
     public LayerMask Path;
     public LayerMask Turrethitbox;
 
     public GameObject FireTowerGhost;
-    public GameObject electroTowerGhost;
+    public GameObject ThunderTowerGhost;
+    public GameObject WindTowerGhost;
     private GameObject ghostInstance;
 
     private GameObject turretselected;
@@ -29,6 +31,7 @@ public class TurretPlacer : MonoBehaviour
 
     public void fireTowerSelected()
     {
+        Debug.Log("FireTowerSelected");
         if (CurrencySystem.Instance.currencyAmount >= 10)
         {
             
@@ -49,15 +52,28 @@ public class TurretPlacer : MonoBehaviour
         
     }
 
-    public void electroTowerSelected()
+    public void ThunderTowerSelected()
     {
+        Debug.Log("ThunderTowerSelected");
         TowerSelected = true;
         turretselected = ElectroTower;
 
         if (ghostInstance != null)
             Destroy(ghostInstance);
 
-        ghostInstance = Instantiate(electroTowerGhost);
+        ghostInstance = Instantiate(ThunderTowerGhost);
+    }
+    
+    public void WindTowerSelected()
+    {
+        Debug.Log("WindTowerSelected");
+        TowerSelected = true;
+        turretselected = WindTower;
+
+        if (ghostInstance != null)
+            Destroy(ghostInstance);
+
+        ghostInstance = Instantiate(WindTowerGhost);
     }
 
     void Update()

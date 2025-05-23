@@ -150,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FireTower: {fileID: 2147877992678129356, guid: 0b85d3cd4e508fc4ab69230721f11bde, type: 3}
   ElectroTower: {fileID: 6222133775412314571, guid: 2608f37f581050d4581c9716f39bc7fe, type: 3}
+  WindTower: {fileID: 6471547942481567232, guid: 743eb5f3bb07eeb45b0f62bca2810228, type: 3}
   Path:
     serializedVersion: 2
     m_Bits: 2048
@@ -157,7 +158,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   FireTowerGhost: {fileID: 2147877992678129356, guid: 4f4c928307fb8c8458b57d70bf7bfc2e, type: 3}
-  electroTowerGhost: {fileID: 6222133775412314571, guid: 60b88c937c1765e4a85213311a0eb966, type: 3}
+  ThunderTowerGhost: {fileID: 6222133775412314571, guid: 60b88c937c1765e4a85213311a0eb966, type: 3}
+  WindTowerGhost: {fileID: 6471547942481567232, guid: 743eb5f3bb07eeb45b0f62bca2810228, type: 3}
 --- !u!4 &6822706
 Transform:
   m_ObjectHideFlags: 0
@@ -8882,7 +8884,7 @@ Transform:
   m_GameObject: {fileID: 962576129}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.04, y: -0.13, z: 0}
+  m_LocalPosition: {x: -2.04, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14588,7 +14590,7 @@ Transform:
   m_GameObject: {fileID: 1745062834}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.84, y: -3.09, z: 0}
+  m_LocalPosition: {x: 2.84, y: -3.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14698,7 +14700,7 @@ Transform:
   m_GameObject: {fileID: 1883576129}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.01, y: 0.47, z: 0}
+  m_LocalPosition: {x: -8.01, y: 0.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
