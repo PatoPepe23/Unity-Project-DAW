@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: e50cb77caa46f314e96387ed7b9e4810, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: e50cb77caa46f314e96387ed7b9e4810, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e50cb77caa46f314e96387ed7b9e4810, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.35
@@ -87,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: []
-  moveSpeed: 1
+  moveSpeed: 0.5
 --- !u!50 &6700242324551926615
 Rigidbody2D:
   serializedVersion: 5
@@ -165,4 +173,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 50
   health: 100
-  sprites: []
+  money: 100

@@ -5,11 +5,13 @@ public class TurretPlacer : MonoBehaviour
 {
     public GameObject FireTower;
     public GameObject ElectroTower;
+    public GameObject WindTower;
     public LayerMask Path;
     public LayerMask Turrethitbox;
 
     public GameObject FireTowerGhost;
-    public GameObject electroTowerGhost;
+    public GameObject ThunderTowerGhost;
+    public GameObject WindTowerGhost;
     private GameObject ghostInstance;
 
     private GameObject turretselected;
@@ -20,31 +22,72 @@ public class TurretPlacer : MonoBehaviour
     private float currentZ = 0f;
     private float zStep = 0.1f;
 
+
     void Start()
     {
         TowerSelected = false;
+       
     }
 
     public void fireTowerSelected()
     {
-        TowerSelected = true;
-        turretselected = FireTower;
+        Debug.Log("FireTowerSelected");
+        if (CurrencySystem.Instance.currencyAmount >= 10)
+        {
+            
 
-        if (ghostInstance != null)
-            Destroy(ghostInstance);
+            TowerSelected = true;
+            turretselected = FireTower;
 
-        ghostInstance = Instantiate(FireTowerGhost);
+            if (ghostInstance != null)
+                Destroy(ghostInstance);
+
+            ghostInstance = Instantiate(FireTowerGhost);
+        }
+        else
+        {
+            return;
+            
+        }
+        
     }
 
-    public void electroTowerSelected()
+    public void ThunderTowerSelected()
     {
-        TowerSelected = true;
-        turretselected = ElectroTower;
+        Debug.Log("ThunderTowerSelected");
+        if (CurrencySystem.Instance.currencyAmount >= 50)
+        {
+            TowerSelected = true;
+            turretselected = ElectroTower;
 
-        if (ghostInstance != null)
-            Destroy(ghostInstance);
+            if (ghostInstance != null)
+                Destroy(ghostInstance);
 
-        ghostInstance = Instantiate(electroTowerGhost);
+            ghostInstance = Instantiate(ThunderTowerGhost);
+        }
+        else
+        {
+            return;
+        }
+    }
+
+    public void WindTowerSelected()
+    {
+        if (CurrencySystem.Instance.currencyAmount >= 20)
+        {
+            Debug.Log("WindTowerSelected");
+            TowerSelected = true;
+            turretselected = WindTower;
+
+            if (ghostInstance != null)
+                Destroy(ghostInstance);
+
+            ghostInstance = Instantiate(WindTowerGhost);
+        }
+        else
+        {
+            return;
+        }
     }
 
     void Update()
@@ -76,12 +119,24 @@ public class TurretPlacer : MonoBehaviour
 
             if (!hayColision && Input.GetMouseButtonDown(0))
             {
+                if (turretselected == FireTower)
+                {
+                    CurrencySystem.Instance.SpendCurrency(10);
+                } else if (turretselected == ElectroTower)
+                {
+                    CurrencySystem.Instance.SpendCurrency(50);
+                } else if (turretselected == WindTower)
+                {
+                    CurrencySystem.Instance.SpendCurrency(20);
+                }
+                
                 Vector3 finalPosition = new Vector3(mousePosition.x, mousePosition.y, currentZ);
                 Instantiate(turretselected, finalPosition, Quaternion.identity);
                 Destroy(ghostInstance);
                 ghostCollider = null;
                 TowerSelected = false;
                 currentZ -= zStep;
+                
             }
         }
     }

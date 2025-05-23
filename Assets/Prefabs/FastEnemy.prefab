@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: FastEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 0dcf07cf68bba894cad522a8ba8a4681, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 0dcf07cf68bba894cad522a8ba8a4681, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 0dcf07cf68bba894cad522a8ba8a4681, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.97
@@ -87,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: []
-  moveSpeed: 4
+  moveSpeed: 3
 --- !u!114 &-402229914357628973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   health: 100
-  sprites: []
+  money: 15
 --- !u!50 &-3535636680026853402
 Rigidbody2D:
   serializedVersion: 5

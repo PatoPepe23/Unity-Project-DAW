@@ -1,14 +1,16 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FinalPathLogic : MonoBehaviour
 {
-    
-    public int lives = 100;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if (LivesSystem.Instance != null)
+        {
+            Debug.LogError("Error: LivesSystem.Instance no está disponible. Asegúrate de que el GameObject con LivesSystem esté en la escena y activo.");
+        }
     }
 
     // Update is called once per frame
@@ -19,14 +21,12 @@ public class FinalPathLogic : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Collision with: " + collision.gameObject.name);
         EnemyLogic enemy = collision.transform.GetComponent<EnemyLogic>();
         int damage = enemy.damage;
 
-        lives -= damage;
-        
-        GameObject.Find("LivesDisplay").GetComponent<TextMeshProUGUI>().text = lives.ToString();
-        
-        
+         LivesSystem.Instance.LoseLive(damage);
+         
         Destroy(collision.gameObject);
     }
 }

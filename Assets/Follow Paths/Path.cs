@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Path : MonoBehaviour
 {
     public Transform[] points;
-    public int moveSpeed;
+    public float moveSpeed;
     
     private int pointIndex;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
