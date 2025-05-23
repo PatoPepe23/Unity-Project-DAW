@@ -110,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   health: 100
-  sprites: []
+  money: 15
 --- !u!50 &-3535636680026853402
 Rigidbody2D:
   serializedVersion: 5

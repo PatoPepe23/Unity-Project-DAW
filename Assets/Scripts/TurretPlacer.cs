@@ -55,25 +55,39 @@ public class TurretPlacer : MonoBehaviour
     public void ThunderTowerSelected()
     {
         Debug.Log("ThunderTowerSelected");
-        TowerSelected = true;
-        turretselected = ElectroTower;
+        if (CurrencySystem.Instance.currencyAmount >= 50)
+        {
+            TowerSelected = true;
+            turretselected = ElectroTower;
 
-        if (ghostInstance != null)
-            Destroy(ghostInstance);
+            if (ghostInstance != null)
+                Destroy(ghostInstance);
 
-        ghostInstance = Instantiate(ThunderTowerGhost);
+            ghostInstance = Instantiate(ThunderTowerGhost);
+        }
+        else
+        {
+            return;
+        }
     }
-    
+
     public void WindTowerSelected()
     {
-        Debug.Log("WindTowerSelected");
-        TowerSelected = true;
-        turretselected = WindTower;
+        if (CurrencySystem.Instance.currencyAmount >= 20)
+        {
+            Debug.Log("WindTowerSelected");
+            TowerSelected = true;
+            turretselected = WindTower;
 
-        if (ghostInstance != null)
-            Destroy(ghostInstance);
+            if (ghostInstance != null)
+                Destroy(ghostInstance);
 
-        ghostInstance = Instantiate(WindTowerGhost);
+            ghostInstance = Instantiate(WindTowerGhost);
+        }
+        else
+        {
+            return;
+        }
     }
 
     void Update()
@@ -105,7 +119,17 @@ public class TurretPlacer : MonoBehaviour
 
             if (!hayColision && Input.GetMouseButtonDown(0))
             {
-                CurrencySystem.Instance.SpendCurrency(10);
+                if (turretselected == FireTower)
+                {
+                    CurrencySystem.Instance.SpendCurrency(10);
+                } else if (turretselected == ElectroTower)
+                {
+                    CurrencySystem.Instance.SpendCurrency(50);
+                } else if (turretselected == WindTower)
+                {
+                    CurrencySystem.Instance.SpendCurrency(20);
+                }
+                
                 Vector3 finalPosition = new Vector3(mousePosition.x, mousePosition.y, currentZ);
                 Instantiate(turretselected, finalPosition, Quaternion.identity);
                 Destroy(ghostInstance);

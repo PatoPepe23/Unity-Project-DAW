@@ -21,6 +21,7 @@ public class FinalPathLogic : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Collision with: " + collision.gameObject.name);
         EnemyLogic enemy = collision.transform.GetComponent<EnemyLogic>();
         int damage = enemy.damage;
 

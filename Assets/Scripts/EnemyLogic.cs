@@ -4,24 +4,21 @@ public class EnemyLogic : MonoBehaviour
 {
     public int damage;
     public int health = 100;
-    public Sprite[] sprites;
-    
+    public int money;
+    private Animator animator;
+
     Rigidbody2D rb;
     SpriteRenderer sr;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
         sr = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.gameObject.name);
@@ -29,8 +26,7 @@ public class EnemyLogic : MonoBehaviour
         {
             BulletBehavior bullet = collision.gameObject.GetComponent<BulletBehavior>();
             TakeDamage(bullet.damage);
-            
-            Destroy(collision.gameObject);
+            // Destroy(collision.gameObject);
         }
     }
 
@@ -38,18 +34,24 @@ public class EnemyLogic : MonoBehaviour
     void TakeDamage(int damage)
     {
         health -= damage;
-        // health -= 1;
+        Debug.Log("Health: " + health);
 
         if (health <= 0)
         {
-            Destroy(gameObject);   
+            CurrencySystem.Instance.AddCurrency(money);
+            Destroy(gameObject);
+        }
+        else if (health <= 25)
+        {
+            animator.SetTrigger("DamagedCritical");
         }
         else if (health <= 33)
         {
-            sr.sprite = sprites[2];
-        } else if (health <= 67)
+            animator.SetTrigger("DamagedLow");
+        }
+        else if (health <= 67)
         {
-            sr.sprite = sprites[1];
+            animator.SetTrigger("DamagedMedium");
         }
     }
 }

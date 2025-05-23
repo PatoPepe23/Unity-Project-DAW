@@ -173,4 +173,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 50
   health: 100
+  money: 100
   sprites: []

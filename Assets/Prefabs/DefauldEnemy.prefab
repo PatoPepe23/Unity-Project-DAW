@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7343408613263804113}
   - component: {fileID: 7905068678518196064}
   - component: {fileID: 2439210512934199149}
+  - component: {fileID: 3419073998731281340}
   m_Layer: 6
   m_Name: DefauldEnemy
   m_TagString: Enemy
@@ -182,7 +183,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   health: 100
-  sprites:
-  - {fileID: 4620814467095047003, guid: 8aae8c27c3ea2d94ba669db30cde7b0e, type: 3}
-  - {fileID: 6408273443792746307, guid: 2770e638ea95f9248848db0c770e0b8e, type: 3}
-  - {fileID: 1083934257275626647, guid: 1d8d25ef025e25b47ba5a60f2739d7de, type: 3}
+  money: 10
+  animator: {fileID: 0}
+--- !u!95 &3419073998731281340
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6690139450456944625}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: -7296390687261590213, guid: 8aae8c27c3ea2d94ba669db30cde7b0e, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

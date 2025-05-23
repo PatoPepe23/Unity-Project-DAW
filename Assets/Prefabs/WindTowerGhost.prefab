@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 5126956698359318136}
   - component: {fileID: -2543562024641253965}
   m_Layer: 8
-  m_Name: ElectroTowerGhost
+  m_Name: WindTowerGhost
   m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198,7 +198,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4659865086336600302, guid: 272743f4c6ae41f4f9d21e3c15c957a6, type: 3}
+  m_Sprite: {fileID: -6409037367388190274, guid: 0719be8861327dc429e81ce957fbeca5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.50980395}
   m_FlipX: 0
   m_FlipY: 0
@@ -247,7 +247,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.75, y: 1}
+    oldSize: {x: 0.625, y: 1}
     newSize: {x: 0.75, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -265,7 +265,7 @@ Animator:
   m_GameObject: {fileID: 6222133775412314571}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 8056416862531075705, guid: 272743f4c6ae41f4f9d21e3c15c957a6, type: 3}
+  m_Controller: {fileID: -822701963162038087, guid: 0719be8861327dc429e81ce957fbeca5, type: 3}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
