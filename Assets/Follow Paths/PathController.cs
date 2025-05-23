@@ -287,18 +287,13 @@ public class PathController : MonoBehaviour
 
     void Update()
     {
-        if (!spawningRound && Input.GetMouseButtonDown(0))
-        {
-            StartSpawningRound();
-        }
-
         if (spawningRound)
         {
             SpawnEnemiesOverTime();
         }
     }
 
-    void StartSpawningRound()
+    public void StartSpawningRound()
     {
         List<GameObject> currentRoundEnemies = GetCurrentRound();
         if (currentRoundEnemies != null && currentRoundEnemies.Count > 0)
