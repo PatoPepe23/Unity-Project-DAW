@@ -21,10 +21,16 @@ public class FireTowerLogic : MonoBehaviour
     public float cooldownTime =1f;
     public GameObject bullet;
     public Vector2 position;
+    public AudioClip shootSound;
+    private AudioSource audioSource;
+
+    
+
     private List<Collider2D> enemies = new List<Collider2D>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         position = new Vector2(transform.position.x, transform.position.y + 1f);
         StartCoroutine(Shoot());
     }
@@ -92,6 +98,9 @@ public class FireTowerLogic : MonoBehaviour
                         Vector2 target = new Vector2(enemyPosition.x, enemyPosition.y);
                         Vector2 direction = (target - position).normalized;
                         GameObject bulletInstance = Instantiate(bullet, position, quaternion.identity);
+
+                        audioSource.PlayOneShot(shootSound);
+                        
 
                         float bulletVelocity = bulletInstance.GetComponent<BulletBehavior>().velocity;
                         float distance = Vector2.Distance(position, target);

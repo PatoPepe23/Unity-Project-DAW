@@ -20,9 +20,11 @@ public class TurretPlacer : MonoBehaviour
     private float currentZ = 0f;
     private float zStep = 0.1f;
 
+
     void Start()
     {
         TowerSelected = false;
+       
     }
 
     public void fireTowerSelected()
@@ -94,6 +96,7 @@ public class TurretPlacer : MonoBehaviour
                 ghostCollider = null;
                 TowerSelected = false;
                 currentZ -= zStep;
+                
             }
         }
     }
